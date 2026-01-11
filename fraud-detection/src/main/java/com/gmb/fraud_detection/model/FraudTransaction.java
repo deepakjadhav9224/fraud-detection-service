@@ -1,49 +1,35 @@
 package com.gmb.fraud_detection.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.gmb.fraud_detection.constants.Constants;
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
 
-import java.time.Instant;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "fraud_transactions")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FraudTransaction {
-
     @Id
-    @Column(name = "transaction_id", nullable = false, length = 50)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String transactionId;
-
-    @Column(name = "customer_id", nullable = false, length = 50)
     private String customerId;
-
-    @Column(nullable = false)
     private Double amount;
-
-    @Column(length = 10)
     private String currency;
-
-    @Column(nullable = false, length = 20)
     private String channel;
-
-    @Column(name = "device_id", length = 50)
     private String deviceId;
-
-    @Column(length = 10)
     private String location;
-
-    @Column(nullable = false)
-    private Instant timestamp;
-
+    private LocalDateTime timestamp;
     @Column(name = "riskscore", nullable = false)
-    private int riskScore;
+    private Integer riskScore;
+    @Enumerated(EnumType.STRING)
+    private Constants.RiskLevel riskLevel;
+    @Enumerated(EnumType.STRING)
+    private Constants.SuggestedAction suggestedAction;
+    @Enumerated(EnumType.STRING)
+    private Constants.TransactionStatus status;
+    private String comment;
 }

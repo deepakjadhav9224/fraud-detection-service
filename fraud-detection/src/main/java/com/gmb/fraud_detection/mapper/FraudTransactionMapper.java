@@ -2,40 +2,35 @@ package com.gmb.fraud_detection.mapper;
 
 import com.gmb.fraud_detection.dto.FraudTransactionDto;
 import com.gmb.fraud_detection.model.FraudTransaction;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FraudTransactionMapper {
 
-    public static FraudTransactionDto mapToFraudTransactionDto(FraudTransaction fraudTransaction) {
-        if (fraudTransaction == null) {
-            return null;
-        }
-        return new FraudTransactionDto(
-                fraudTransaction.getTransactionId(),
-                fraudTransaction.getCustomerId(),
-                fraudTransaction.getAmount(),
-                fraudTransaction.getCurrency(),
-                fraudTransaction.getChannel(),
-                fraudTransaction.getDeviceId(),
-                fraudTransaction.getLocation(),
-                fraudTransaction.getTimestamp(),
-                fraudTransaction.getRiskScore()
-        );
+    public FraudTransaction toEntity(FraudTransactionDto dto) {
+        FraudTransaction entity = new FraudTransaction();
+        entity.setTransactionId(dto.getTransactionId());
+        entity.setCustomerId(dto.getCustomerId());
+        entity.setAmount(dto.getAmount());
+        entity.setCurrency(dto.getCurrency());
+        entity.setChannel(dto.getChannel());
+        entity.setDeviceId(dto.getDeviceId());
+        entity.setLocation(dto.getLocation());
+        entity.setTimestamp(dto.getTimestamp());
+        return entity;
     }
 
-    public static FraudTransaction mapToFraudTransaction(FraudTransactionDto fraudTransactionDto) {
-        if (fraudTransactionDto == null) {
-            return null;
-        }
-        return new FraudTransaction(
-                fraudTransactionDto.getTransactionId(),
-                fraudTransactionDto.getCustomerId(),
-                fraudTransactionDto.getAmount(),
-                fraudTransactionDto.getCurrency(),
-                fraudTransactionDto.getChannel(),
-                fraudTransactionDto.getDeviceId(),
-                fraudTransactionDto.getLocation(),
-                fraudTransactionDto.getTimestamp(),
-                fraudTransactionDto.getRiskScore()
-        );
+    public FraudTransactionDto toDto(FraudTransaction entity) {
+        FraudTransactionDto dto = new FraudTransactionDto();
+        dto.setTransactionId(entity.getTransactionId());
+        dto.setCustomerId(entity.getCustomerId());
+        dto.setAmount(entity.getAmount());
+        dto.setCurrency(entity.getCurrency());
+        dto.setChannel(entity.getChannel());
+        dto.setDeviceId(entity.getDeviceId());
+        dto.setLocation(entity.getLocation());
+        dto.setTimestamp(entity.getTimestamp());
+        dto.setRiskScore(entity.getRiskScore());
+        return dto;
     }
 }
