@@ -15,7 +15,10 @@ public class FraudTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(unique = true, nullable = false)
     private String transactionId;
+
     private String customerId;
     private Double amount;
     private String currency;

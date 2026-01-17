@@ -13,5 +13,4 @@ public class FraudTransactionDto {
     private String deviceId;
     private String location;
     private LocalDateTime timestamp;
-    private Integer riskScore;
 }
