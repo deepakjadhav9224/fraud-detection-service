@@ -23,16 +23,20 @@ public class FraudDetectionImpl implements FraudDetectionService {
     public FraudEvaluationResponse evaluateTransaction(FraudTransactionDto requestDto) {
         FraudTransaction transaction = mapper.toEntity(requestDto);
 
-        // 1. Calculate Score (Your Rule)
-        int score = (transaction.getAmount() > 50000) ? 70 : 0;
+        // 1. Calculate Score
+        int score = calculateRiskScore(transaction);
         transaction.setRiskScore(score);
 
         // 2. Determine Level and Action based on Score
-        if (score >= 70) {
+        if (score >= 80) {
+            transaction.setRiskLevel(RiskLevel.HIGH);
+            transaction.setSuggestedAction(SuggestedAction.REJECT);
+            transaction.setStatus(TransactionStatus.BLOCKED);
+        } else if (score >= 50) {
             transaction.setRiskLevel(RiskLevel.HIGH);
             transaction.setSuggestedAction(SuggestedAction.REVIEW);
             transaction.setStatus(TransactionStatus.PENDING_REVIEW);
-        } else if (score > 30) {
+        } else if (score >= 20) {
             transaction.setRiskLevel(RiskLevel.MEDIUM);
             transaction.setSuggestedAction(SuggestedAction.CHALLENGE);
             transaction.setStatus(TransactionStatus.PENDING_REVIEW);
@@ -53,6 +57,36 @@ public class FraudDetectionImpl implements FraudDetectionService {
                 .suggestedAction(transaction.getSuggestedAction())
                 .status(transaction.getStatus())
                 .build();
+    }
+
+    private int calculateRiskScore(FraudTransaction transaction) {
+        int score = 0;
+
+        // Rule 1: High Amount
+        if (transaction.getAmount() != null) {
+            if (transaction.getAmount() > 50000) {
+                score += 50;
+            } else if (transaction.getAmount() > 10000) {
+                score += 20;
+            }
+        }
+
+        // Rule 2: Missing Device ID
+        if (transaction.getDeviceId() == null || transaction.getDeviceId().isEmpty()) {
+            score += 20;
+        }
+
+        // Rule 3: Suspicious Locations
+        if (transaction.getLocation() != null && (transaction.getLocation().equalsIgnoreCase("Unknown") || transaction.getLocation().equalsIgnoreCase("HighRiskCountry"))) {
+            score += 30;
+        }
+
+        // Rule 4: Channel based risk
+        if ("WEB".equalsIgnoreCase(transaction.getChannel()) || "MOBILE".equalsIgnoreCase(transaction.getChannel())) {
+            score += 10;
+        }
+
+        return Math.min(score, 100);
     }
 
     @Override
