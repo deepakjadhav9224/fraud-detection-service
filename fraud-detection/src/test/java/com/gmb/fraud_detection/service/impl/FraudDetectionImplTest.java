@@ -60,14 +60,11 @@ class FraudDetectionImplTest {
 
     @Test
     void evaluateTransaction_LowRisk_ShouldApprove() {
-        // Arrange
         when(mapper.toEntity(transactionDto)).thenReturn(transaction);
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         FraudEvaluationResponse response = fraudDetectionService.evaluateTransaction(transactionDto);
 
-        // Assert
         assertEquals(Constants.RiskLevel.LOW, response.getRiskLevel());
         assertEquals(Constants.SuggestedAction.APPROVE, response.getSuggestedAction());
         assertEquals(Constants.TransactionStatus.APPROVED, response.getStatus());
@@ -76,19 +73,14 @@ class FraudDetectionImplTest {
 
     @Test
     void evaluateTransaction_MediumRisk_ShouldChallenge() {
-        // Arrange
-        // Increase amount to > 10000 (Score +20)
         transactionDto.setAmount(15000.0);
         transaction.setAmount(15000.0);
         
         when(mapper.toEntity(transactionDto)).thenReturn(transaction);
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         FraudEvaluationResponse response = fraudDetectionService.evaluateTransaction(transactionDto);
 
-        // Assert
-        // Score = 20 (Amount) -> Medium Risk
         assertEquals(Constants.RiskLevel.MEDIUM, response.getRiskLevel());
         assertEquals(Constants.SuggestedAction.CHALLENGE, response.getSuggestedAction());
         assertEquals(Constants.TransactionStatus.PENDING_REVIEW, response.getStatus());
@@ -96,19 +88,14 @@ class FraudDetectionImplTest {
 
     @Test
     void evaluateTransaction_HighRisk_ShouldReview() {
-        // Arrange
-        // Increase amount to > 50000 (Score +50)
         transactionDto.setAmount(60000.0);
         transaction.setAmount(60000.0);
 
         when(mapper.toEntity(transactionDto)).thenReturn(transaction);
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         FraudEvaluationResponse response = fraudDetectionService.evaluateTransaction(transactionDto);
 
-        // Assert
-        // Score = 50 (Amount) -> High Risk -> Review
         assertEquals(Constants.RiskLevel.HIGH, response.getRiskLevel());
         assertEquals(Constants.SuggestedAction.REVIEW, response.getSuggestedAction());
         assertEquals(Constants.TransactionStatus.PENDING_REVIEW, response.getStatus());
@@ -116,9 +103,6 @@ class FraudDetectionImplTest {
 
     @Test
     void evaluateTransaction_VeryHighRisk_ShouldBlock() {
-        // Arrange
-        // Amount > 50000 (+50)
-        // Unknown Location (+30)
         transactionDto.setAmount(60000.0);
         transactionDto.setLocation("Unknown");
         
@@ -128,11 +112,8 @@ class FraudDetectionImplTest {
         when(mapper.toEntity(transactionDto)).thenReturn(transaction);
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         FraudEvaluationResponse response = fraudDetectionService.evaluateTransaction(transactionDto);
 
-        // Assert
-        // Score = 50 + 30 = 80 -> Block
         assertEquals(Constants.RiskLevel.HIGH, response.getRiskLevel());
         assertEquals(Constants.SuggestedAction.REJECT, response.getSuggestedAction());
         assertEquals(Constants.TransactionStatus.BLOCKED, response.getStatus());
@@ -140,7 +121,6 @@ class FraudDetectionImplTest {
 
     @Test
     void updateTransactionStatus_ShouldUpdateStatus() {
-        // Arrange
         String txnId = "TXN123";
         StatusUpdateRequest request = new StatusUpdateRequest();
         request.setStatus(Constants.TransactionStatus.APPROVED);
@@ -150,10 +130,8 @@ class FraudDetectionImplTest {
         when(repository.findByTransactionId(txnId)).thenReturn(Optional.of(transaction));
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         StatusUpdateResponse response = fraudDetectionService.updateTransactionStatus(txnId, request);
 
-        // Assert
         assertEquals(Constants.TransactionStatus.PENDING_REVIEW, response.getOldStatus());
         assertEquals(Constants.TransactionStatus.APPROVED, response.getNewStatus());
         assertEquals(Constants.TransactionStatus.APPROVED, transaction.getStatus());
@@ -161,21 +139,17 @@ class FraudDetectionImplTest {
 
     @Test
     void getTransaction_ShouldReturnTransaction() {
-        // Arrange
         String txnId = "TXN123";
         when(repository.findByTransactionId(txnId)).thenReturn(Optional.of(transaction));
 
-        // Act
         FraudTransactionResponse response = fraudDetectionService.getTransaction(txnId);
 
-        // Assert
         assertEquals(txnId, response.getTransactionId());
         assertEquals(transaction.getAmount(), response.getAmount());
     }
 
     @Test
     void processCustomerConfirmation_Confirmed_ShouldApprove() {
-        // Arrange
         CustomerActionRequest request = new CustomerActionRequest();
         request.setTransactionId("TXN123");
         request.setCustomerId("CUST001");
@@ -187,10 +161,8 @@ class FraudDetectionImplTest {
         when(repository.findByTransactionId("TXN123")).thenReturn(Optional.of(transaction));
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         CustomerActionResponse response = fraudDetectionService.processCustomerConfirmation(request);
 
-        // Assert
         assertEquals("APPROVED", response.getStatus());
         assertEquals(Constants.TransactionStatus.APPROVED, transaction.getStatus());
         assertTrue(transaction.getComment().contains("Customer confirmed"));
@@ -198,7 +170,6 @@ class FraudDetectionImplTest {
 
     @Test
     void processCustomerConfirmation_Denied_ShouldBlock() {
-        // Arrange
         CustomerActionRequest request = new CustomerActionRequest();
         request.setTransactionId("TXN123");
         request.setCustomerId("CUST001");
@@ -210,10 +181,8 @@ class FraudDetectionImplTest {
         when(repository.findByTransactionId("TXN123")).thenReturn(Optional.of(transaction));
         when(repository.save(any(FraudTransaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         CustomerActionResponse response = fraudDetectionService.processCustomerConfirmation(request);
 
-        // Assert
         assertEquals("BLOCKED", response.getStatus());
         assertEquals(Constants.TransactionStatus.BLOCKED, transaction.getStatus());
         assertTrue(transaction.getComment().contains("Customer denied"));
@@ -221,14 +190,12 @@ class FraudDetectionImplTest {
     
     @Test
     void processCustomerConfirmation_WrongCustomer_ShouldThrowException() {
-        // Arrange
         CustomerActionRequest request = new CustomerActionRequest();
         request.setTransactionId("TXN123");
         request.setCustomerId("WRONG_CUST");
 
         when(repository.findByTransactionId("TXN123")).thenReturn(Optional.of(transaction));
 
-        // Act & Assert
         assertThrows(SecurityException.class, () -> fraudDetectionService.processCustomerConfirmation(request));
     }
 }

@@ -23,11 +23,9 @@ public class FraudDetectionImpl implements FraudDetectionService {
     public FraudEvaluationResponse evaluateTransaction(FraudTransactionDto requestDto) {
         FraudTransaction transaction = mapper.toEntity(requestDto);
 
-        // 1. Calculate Score
         int score = calculateRiskScore(transaction);
         transaction.setRiskScore(score);
 
-        // 2. Determine Level and Action based on Score
         if (score >= 80) {
             transaction.setRiskLevel(RiskLevel.HIGH);
             transaction.setSuggestedAction(SuggestedAction.REJECT);
@@ -46,10 +44,8 @@ public class FraudDetectionImpl implements FraudDetectionService {
             transaction.setStatus(TransactionStatus.APPROVED);
         }
 
-        // 3. Save to DB
         repository.save(transaction);
 
-        // 4. Return enriched response
         return FraudEvaluationResponse.builder()
                 .transactionId(transaction.getTransactionId())
                 .riskScore(transaction.getRiskScore())
@@ -62,7 +58,7 @@ public class FraudDetectionImpl implements FraudDetectionService {
     private int calculateRiskScore(FraudTransaction transaction) {
         int score = 0;
 
-        // Rule 1: High Amount
+        // Rule: High Amount
         if (transaction.getAmount() != null) {
             if (transaction.getAmount() > 50000) {
                 score += 50;
@@ -71,17 +67,17 @@ public class FraudDetectionImpl implements FraudDetectionService {
             }
         }
 
-        // Rule 2: Missing Device ID
+        // Rule: Missing Device ID
         if (transaction.getDeviceId() == null || transaction.getDeviceId().isEmpty()) {
             score += 20;
         }
 
-        // Rule 3: Suspicious Locations
+        // Rule: Suspicious Locations
         if (transaction.getLocation() != null && (transaction.getLocation().equalsIgnoreCase("Unknown") || transaction.getLocation().equalsIgnoreCase("HighRiskCountry"))) {
             score += 30;
         }
 
-        // Rule 4: Channel based risk
+        // Rule: Channel based risk
         if ("WEB".equalsIgnoreCase(transaction.getChannel()) || "MOBILE".equalsIgnoreCase(transaction.getChannel())) {
             score += 10;
         }
@@ -91,20 +87,15 @@ public class FraudDetectionImpl implements FraudDetectionService {
 
     @Override
     public StatusUpdateResponse updateTransactionStatus(String transactionId, StatusUpdateRequest request) {
-        // 1. Find the existing transaction
         FraudTransaction transaction = repository.findByTransactionId(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transaction not found: " + transactionId));
 
-        // 2. Capture old status for the response
         TransactionStatus oldStatus = transaction.getStatus();
 
-        // 3. Update status and metadata (Real world: you'd save 'reason' and 'updatedBy' to an audit table)
         transaction.setStatus(request.getStatus());
 
-        // 4. Save changes
         repository.save(transaction);
 
-        // 5. Return the response
         return StatusUpdateResponse.builder()
                 .transactionId(transactionId)
                 .oldStatus(oldStatus)
@@ -115,11 +106,9 @@ public class FraudDetectionImpl implements FraudDetectionService {
 
     @Override
     public FraudTransactionResponse getTransaction(String transactionId) {
-        // 1. Fetch from DB
         FraudTransaction tx = repository.findByTransactionId(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transaction ID not found: " + transactionId));
 
-        // 2. Map Entity to Response DTO
         return FraudTransactionResponse.builder()
                 .transactionId(tx.getTransactionId())
                 .customerId(tx.getCustomerId())
@@ -136,16 +125,13 @@ public class FraudDetectionImpl implements FraudDetectionService {
     @Override
     @Transactional
     public CustomerActionResponse processCustomerConfirmation(CustomerActionRequest request) {
-        // 1. Fetch the transaction
         FraudTransaction tx = repository.findByTransactionId(request.getTransactionId())
                 .orElseThrow(() -> new RuntimeException("Transaction not found"));
 
-        // 2. SECURITY CHECK: Does this transaction belong to the customer who is responding?
         if (!tx.getCustomerId().equals(request.getCustomerId())) {
             throw new SecurityException("Unauthorized: Customer ID mismatch.");
         }
 
-        // 3. Update Status based on 'confirmed' boolean
         if (request.isConfirmed()) {
             tx.setStatus(TransactionStatus.APPROVED);
             tx.setComment("Customer confirmed: " + request.getComment());

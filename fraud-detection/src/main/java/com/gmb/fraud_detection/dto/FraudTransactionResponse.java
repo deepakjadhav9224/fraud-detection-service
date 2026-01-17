@@ -13,12 +13,10 @@ public class FraudTransactionResponse {
     private Double amount;
     private String currency;
 
-    // Risk Details
     private Integer riskScore;
     private Constants.RiskLevel riskLevel;
     private Constants.SuggestedAction suggestedAction;
 
-    // State
     private Constants.TransactionStatus status;
     private LocalDateTime timestamp;
 }
