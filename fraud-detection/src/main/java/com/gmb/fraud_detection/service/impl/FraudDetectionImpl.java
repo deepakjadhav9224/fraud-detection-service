@@ -21,6 +21,10 @@ public class FraudDetectionImpl implements FraudDetectionService {
 
     @Override
     public FraudEvaluationResponse evaluateTransaction(FraudTransactionDto requestDto) {
+        if (repository.findByTransactionId(requestDto.getTransactionId()).isPresent()) {
+            throw new IllegalArgumentException("Transaction already processed: " + requestDto.getTransactionId());
+        }
+
         FraudTransaction transaction = mapper.toEntity(requestDto);
 
         int score = calculateRiskScore(transaction);

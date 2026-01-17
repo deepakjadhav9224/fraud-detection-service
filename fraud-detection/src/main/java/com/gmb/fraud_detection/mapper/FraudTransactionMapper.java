@@ -30,7 +30,6 @@ public class FraudTransactionMapper {
         dto.setDeviceId(entity.getDeviceId());
         dto.setLocation(entity.getLocation());
         dto.setTimestamp(entity.getTimestamp());
-        dto.setRiskScore(entity.getRiskScore());
         return dto;
     }
 }
