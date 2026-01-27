@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: fraud-detection
+  datasource:
+    url: jdbc:mysql://localhost:3306/fraud_detection_db
+    username: fraud_service_user
+    password: FraudUser@123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      # Fail fast instead of blocking indefinitely
+      acks: all
+      retries: 3
+      properties:
+        spring.json.add.type.headers: false
+        enable.idempotence: true
+        # Timeouts to prevent blocking
+        max.block.ms: 10000
+        delivery.timeout.ms: 30000
+        request.timeout.ms: 10000
+        # Backoff strategy
+        reconnect.backoff.ms: 100
+        reconnect.backoff.max.ms: 5000
+    consumer:
+      group-id: fraud-detection-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.gmb.fraud_detection.dto.FraudEventDto
+
+server:
+  port: 8081
+
+app:
+  kafka:
+    topics:
+      transaction-evaluated: transaction-evaluated
+      transaction-status-updated: transaction-status-updated
+      customer-action-received: customer-action-received

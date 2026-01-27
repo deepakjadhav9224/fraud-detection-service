@@ -5,8 +5,10 @@ import com.gmb.fraud_detection.mapper.FraudTransactionMapper;
 import com.gmb.fraud_detection.model.FraudTransaction;
 import com.gmb.fraud_detection.repository.FraudTransactionRepository;
 import com.gmb.fraud_detection.service.FraudDetectionService;
+import com.gmb.fraud_detection.service.KafkaProducerService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.gmb.fraud_detection.constants.Constants.*;
 
@@ -18,8 +20,19 @@ public class FraudDetectionImpl implements FraudDetectionService {
 
     private final FraudTransactionRepository repository;
     private final FraudTransactionMapper mapper;
+    private final KafkaProducerService kafkaProducerService;
+
+    @Value("${app.kafka.topics.transaction-evaluated}")
+    private String transactionEvaluatedTopic;
+
+    @Value("${app.kafka.topics.transaction-status-updated}")
+    private String transactionStatusUpdatedTopic;
+
+    @Value("${app.kafka.topics.customer-action-received}")
+    private String customerActionReceivedTopic;
 
     @Override
+    @Transactional
     public FraudEvaluationResponse evaluateTransaction(FraudTransactionDto requestDto) {
         if (repository.findByTransactionId(requestDto.getTransactionId()).isPresent()) {
             throw new IllegalArgumentException("Transaction already processed: " + requestDto.getTransactionId());
@@ -49,6 +62,20 @@ public class FraudDetectionImpl implements FraudDetectionService {
         }
 
         repository.save(transaction);
+
+        // Publish Kafka Event with synchronous send
+        // This must succeed before transaction commits
+        // If Kafka send fails, exception is thrown and DB transaction is rolled back
+        FraudEventDto event = FraudEventDto.builder()
+                .transactionId(transaction.getId())
+                .previousStatus("NEW")
+                .currentStatus(transaction.getStatus().name())
+                .riskScore(transaction.getRiskScore())
+                .actor("SYSTEM")
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        kafkaProducerService.sendEvent(transactionEvaluatedTopic, event);
 
         return FraudEvaluationResponse.builder()
                 .transactionId(transaction.getTransactionId())
@@ -90,6 +117,7 @@ public class FraudDetectionImpl implements FraudDetectionService {
     }
 
     @Override
+    @Transactional
     public StatusUpdateResponse updateTransactionStatus(String transactionId, StatusUpdateRequest request) {
         FraudTransaction transaction = repository.findByTransactionId(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transaction not found: " + transactionId));
@@ -99,6 +127,19 @@ public class FraudDetectionImpl implements FraudDetectionService {
         transaction.setStatus(request.getStatus());
 
         repository.save(transaction);
+
+        // Publish Kafka Event with synchronous send
+        // This must succeed before transaction commits
+        FraudEventDto event = FraudEventDto.builder()
+                .transactionId(transaction.getId())
+                .previousStatus(oldStatus.name())
+                .currentStatus(transaction.getStatus().name())
+                .riskScore(transaction.getRiskScore())
+                .actor("ANALYST")
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        kafkaProducerService.sendEvent(transactionStatusUpdatedTopic, event);
 
         return StatusUpdateResponse.builder()
                 .transactionId(transactionId)
@@ -136,6 +177,8 @@ public class FraudDetectionImpl implements FraudDetectionService {
             throw new SecurityException("Unauthorized: Customer ID mismatch.");
         }
 
+        TransactionStatus oldStatus = tx.getStatus();
+
         if (request.isConfirmed()) {
             tx.setStatus(TransactionStatus.APPROVED);
             tx.setComment("Customer confirmed: " + request.getComment());
@@ -145,6 +188,19 @@ public class FraudDetectionImpl implements FraudDetectionService {
         }
 
         repository.save(tx);
+
+        // Publish Kafka Event with synchronous send
+        // This must succeed before transaction commits
+        FraudEventDto event = FraudEventDto.builder()
+                .transactionId(tx.getId())
+                .previousStatus(oldStatus.name())
+                .currentStatus(tx.getStatus().name())
+                .riskScore(tx.getRiskScore())
+                .actor("CUSTOMER")
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        kafkaProducerService.sendEvent(customerActionReceivedTopic, event);
 
         return CustomerActionResponse.builder()
                 .transactionId(tx.getTransactionId())

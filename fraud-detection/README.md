@@ -1,50 +1,73 @@
-# Fraud Detection Service
+# Fraud Detection Service - Kafka Integration
 
-Fraud Detection Service of GM Bank. This Spring Boot application is designed to detect fraudulent activities.
+This service now includes Apache Kafka integration for event-driven communication.
 
-## Technologies Used
+## Kafka Topics
 
-*   **Java 17**
-*   **Spring Boot** (Web MVC, Data JPA)
-*   **MySQL** (Database)
-*   **Lombok** (Boilerplate code reduction)
-*   **SpringDoc OpenAPI** (API Documentation)
-*   **Maven** (Build tool)
+| Topic Name | Description |
+|------------|-------------|
+| `transaction-evaluated` | Published when a transaction is evaluated by the system. |
+| `transaction-status-updated` | Published when an analyst manually updates a transaction status. |
+| `customer-action-received` | Published when a customer confirms or denies a transaction. |
 
-## Prerequisites
+## Event Payload
 
-*   Java Development Kit (JDK) 17 or later
-*   Maven
-*   MySQL Server
+All events use the following JSON structure:
 
-## Setup and Installation
+```json
+{
+  "transactionId": 12345,
+  "previousStatus": "PENDING_REVIEW",
+  "currentStatus": "BLOCKED",
+  "riskScore": 85,
+  "actor": "ANALYST",
+  "timestamp": "2023-10-27T10:00:00"
+}
+```
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <repository-url>
-    cd fraud-detection
-    ```
+## Local Setup
 
-2.  **Configure the Database:**
-    Update the `src/main/resources/application.properties` (or `application.yml`) file with your MySQL database credentials.
-    ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
-    spring.datasource.username=your_username
-    spring.datasource.password=your_password
-    ```
+### Prerequisites
+- Docker & Docker Compose
+- Java 17+
+- Maven
 
-3.  **Build the project:**
-    ```bash
-    ./mvnw clean install
-    ```
+### Running Kafka Locally
 
-4.  **Run the application:**
-    ```bash
-    ./mvnw spring-boot:run
-    ```
+Use the provided `docker-compose.yml` to start Kafka and Zookeeper:
 
-## API Documentation
+```bash
+docker-compose up -d
+```
 
-The application uses SpringDoc OpenAPI for API documentation. Once the application is running, you can access the Swagger UI at:
+### Testing Events
 
-`http://localhost:8080/swagger-ui.html` (Port may vary based on configuration)
+You can use the Kafka console consumer to verify events are being published.
+
+**Listen to `transaction-evaluated`:**
+```bash
+docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9092 --topic transaction-evaluated --from-beginning
+```
+
+**Listen to `transaction-status-updated`:**
+```bash
+docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9092 --topic transaction-status-updated --from-beginning
+```
+
+**Listen to `customer-action-received`:**
+```bash
+docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9092 --topic customer-action-received --from-beginning
+```
+
+## Configuration
+
+Kafka configuration is located in `src/main/resources/application.yml`.
+
+```yaml
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: fraud-detection-group
+      auto-offset-reset: earliest
+```
