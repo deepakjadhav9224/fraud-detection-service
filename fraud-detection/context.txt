@@ -1,0 +1,963 @@
+"C:\Program Files\Java\jdk-17\bin\java.exe" -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true "-Dmanagement.endpoints.jmx.exposure.include=*" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2025.3.1\lib\idea_rt.jar=59883" -Dfile.encoding=UTF-8 -classpath C:\Users\Somanath\IdeaProjects\fraud-detection-service\fraud-detection\target\classes;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.0.1\spring-boot-starter-data-jpa-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter\4.0.1\spring-boot-starter-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.0.1\spring-boot-starter-logging-4.0.1.jar;C:\Users\Somanath\.m2\repository\ch\qos\logback\logback-classic\1.5.22\logback-classic-1.5.22.jar;C:\Users\Somanath\.m2\repository\ch\qos\logback\logback-core\1.5.22\logback-core-1.5.22.jar;C:\Users\Somanath\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.3\log4j-to-slf4j-2.25.3.jar;C:\Users\Somanath\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\Somanath\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.0.1\spring-boot-autoconfigure-4.0.1.jar;C:\Users\Somanath\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\Somanath\.m2\repository\org\yaml\snakeyaml\2.5\snakeyaml-2.5.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.0.1\spring-boot-starter-jdbc-4.0.1.jar;C:\Users\Somanath\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.0.1\spring-boot-data-jpa-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.0.1\spring-boot-data-commons-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-persistence\4.0.1\spring-boot-persistence-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\data\spring-data-commons\4.0.1\spring-data-commons-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.0.1\spring-boot-hibernate-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-jpa\4.0.1\spring-boot-jpa-4.0.1.jar;C:\Users\Somanath\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\Somanath\.m2\repository\org\hibernate\orm\hibernate-core\7.2.0.Final\hibernate-core-7.2.0.Final.jar;C:\Users\Somanath\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Somanath\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Somanath\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\Somanath\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\Somanath\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\Somanath\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\Somanath\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\Somanath\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\Somanath\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Somanath\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-orm\7.0.2\spring-orm-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\data\spring-data-jpa\4.0.1\spring-data-jpa-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-aspects\7.0.2\spring-aspects-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.0.1\spring-boot-jdbc-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot\4.0.1\spring-boot-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-sql\4.0.1\spring-boot-sql-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-transaction\4.0.1\spring-boot-transaction-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-jdbc\7.0.2\spring-jdbc-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.0.1\spring-boot-starter-webmvc-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.0.1\spring-boot-starter-jackson-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-jackson\4.0.1\spring-boot-jackson-4.0.1.jar;C:\Users\Somanath\.m2\repository\tools\jackson\core\jackson-databind\3.0.3\jackson-databind-3.0.3.jar;C:\Users\Somanath\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.20\jackson-annotations-2.20.jar;C:\Users\Somanath\.m2\repository\tools\jackson\core\jackson-core\3.0.3\jackson-core-3.0.3.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.0.1\spring-boot-starter-tomcat-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.0.1\spring-boot-starter-tomcat-runtime-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.15\tomcat-embed-core-11.0.15.jar;C:\Users\Somanath\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.15\tomcat-embed-el-11.0.15.jar;C:\Users\Somanath\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.15\tomcat-embed-websocket-11.0.15.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.0.1\spring-boot-tomcat-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.0.1\spring-boot-http-converter-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-web\7.0.2\spring-web-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.0.1\spring-boot-webmvc-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-servlet\4.0.1\spring-boot-servlet-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-webmvc\7.0.2\spring-webmvc-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\kafka\spring-kafka\4.0.2\spring-kafka-4.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-context\7.0.2\spring-context-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-aop\7.0.2\spring-aop-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-beans\7.0.2\spring-beans-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-core\7.0.2\spring-core-7.0.2.jar;C:\Users\Somanath\.m2\repository\commons-logging\commons-logging\1.3.5\commons-logging-1.3.5.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-expression\7.0.2\spring-expression-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-messaging\7.0.2\spring-messaging-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\springframework\spring-tx\7.0.2\spring-tx-7.0.2.jar;C:\Users\Somanath\.m2\repository\org\apache\kafka\kafka-clients\4.1.1\kafka-clients-4.1.1.jar;C:\Users\Somanath\.m2\repository\com\github\luben\zstd-jni\1.5.6-10\zstd-jni-1.5.6-10.jar;C:\Users\Somanath\.m2\repository\org\lz4\lz4-java\1.8.0\lz4-java-1.8.0.jar;C:\Users\Somanath\.m2\repository\org\xerial\snappy\snappy-java\1.1.10.7\snappy-java-1.1.10.7.jar;C:\Users\Somanath\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Somanath\.m2\repository\io\micrometer\micrometer-observation\1.16.1\micrometer-observation-1.16.1.jar;C:\Users\Somanath\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Somanath\.m2\repository\io\micrometer\micrometer-commons\1.16.1\micrometer-commons-1.16.1.jar;C:\Users\Somanath\.m2\repository\com\mysql\mysql-connector-j\9.5.0\mysql-connector-j-9.5.0.jar;C:\Users\Somanath\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\Somanath\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\Somanath\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\Somanath\.m2\repository\org\springframework\boot\spring-boot-web-server\4.0.1\spring-boot-web-server-4.0.1.jar;C:\Users\Somanath\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\Somanath\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.3.0\springdoc-openapi-starter-webmvc-ui-2.3.0.jar;C:\Users\Somanath\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.3.0\springdoc-openapi-starter-webmvc-api-2.3.0.jar;C:\Users\Somanath\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.3.0\springdoc-openapi-starter-common-2.3.0.jar;C:\Users\Somanath\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.19\swagger-core-jakarta-2.2.19.jar;C:\Users\Somanath\.m2\repository\org\apache\commons\commons-lang3\3.19.0\commons-lang3-3.19.0.jar;C:\Users\Somanath\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.19\swagger-annotations-jakarta-2.2.19.jar;C:\Users\Somanath\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.19\swagger-models-jakarta-2.2.19.jar;C:\Users\Somanath\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\Somanath\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.20.1\jackson-databind-2.20.1.jar;C:\Users\Somanath\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.20.1\jackson-core-2.20.1.jar;C:\Users\Somanath\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.20.1\jackson-dataformat-yaml-2.20.1.jar;C:\Users\Somanath\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.20.1\jackson-datatype-jsr310-2.20.1.jar;C:\Users\Somanath\.m2\repository\org\webjars\swagger-ui\5.10.3\swagger-ui-5.10.3.jar com.gmb.fraud_detection.FraudDetectionApplication
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-01-27T19:47:49.015+05:30  INFO 4684 --- [fraud-detection] [           main] c.g.f.FraudDetectionApplication          : Starting FraudDetectionApplication using Java 17.0.12 with PID 4684 (C:\Users\Somanath\IdeaProjects\fraud-detection-service\fraud-detection\target\classes started by Somanath in C:\Users\Somanath\IdeaProjects\fraud-detection-service\fraud-detection)
+2026-01-27T19:47:49.018+05:30  INFO 4684 --- [fraud-detection] [           main] c.g.f.FraudDetectionApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-01-27T19:47:49.658+05:30  INFO 4684 --- [fraud-detection] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-27T19:47:49.705+05:30  INFO 4684 --- [fraud-detection] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interface.
+2026-01-27T19:47:50.099+05:30  INFO 4684 --- [fraud-detection] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-01-27T19:47:50.109+05:30  INFO 4684 --- [fraud-detection] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-27T19:47:50.109+05:30  INFO 4684 --- [fraud-detection] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-01-27T19:47:50.159+05:30  INFO 4684 --- [fraud-detection] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1104 ms
+2026-01-27T19:47:50.294+05:30  INFO 4684 --- [fraud-detection] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-01-27T19:47:50.344+05:30  INFO 4684 --- [fraud-detection] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-01-27T19:47:50.662+05:30  INFO 4684 --- [fraud-detection] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-27T19:47:50.690+05:30  INFO 4684 --- [fraud-detection] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-27T19:47:50.955+05:30  INFO 4684 --- [fraud-detection] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c4cf7eb
+2026-01-27T19:47:50.956+05:30  INFO 4684 --- [fraud-detection] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-27T19:47:51.003+05:30  WARN 4684 --- [fraud-detection] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-27T19:47:51.022+05:30  INFO 4684 --- [fraud-detection] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/fraud_detection_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.44
+	Default catalog/schema: fraud_detection_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-27T19:47:51.716+05:30  INFO 4684 --- [fraud-detection] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-27T19:47:51.767+05:30  INFO 4684 --- [fraud-detection] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-27T19:47:51.841+05:30  INFO 4684 --- [fraud-detection] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-27T19:47:52.105+05:30  WARN 4684 --- [fraud-detection] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-27T19:47:52.134+05:30  INFO 4684 --- [fraud-detection] [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-01-27T19:47:52.438+05:30  INFO 4684 --- [fraud-detection] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-01-27T19:47:52.444+05:30  INFO 4684 --- [fraud-detection] [           main] c.g.f.FraudDetectionApplication          : Started FraudDetectionApplication in 3.831 seconds (process running for 4.375)
+2026-01-27T19:48:00.720+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-27T19:48:00.721+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-27T19:48:00.723+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-01-27T19:48:01.198+05:30 ERROR 4684 --- [fraud-detection] [nio-8081-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Transaction already processed: Test1234] with root cause
+
+java.lang.IllegalArgumentException: Transaction already processed: Test1234
+	at com.gmb.fraud_detection.service.impl.FraudDetectionImpl.evaluateTransaction(FraudDetectionImpl.java:37) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.2.jar:7.0.2]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:715) ~[spring-aop-7.0.2.jar:7.0.2]
+	at com.gmb.fraud_detection.service.impl.FraudDetectionImpl$$SpringCGLIB$$0.evaluateTransaction(<generated>) ~[classes/:na]
+	at com.gmb.fraud_detection.controller.FraudTransactionController.evaluateTransaction(FraudTransactionController.java:32) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-01-27T19:48:16.188+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] c.g.f.service.KafkaProducerService       : Publishing event to topic transaction-evaluated: FraudEventDto(transactionId=2, previousStatus=NEW, currentStatus=PENDING_REVIEW, riskScore=50, actor=SYSTEM, timestamp=2026-01-27T19:48:16.188837600)
+2026-01-27T19:48:16.271+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values:
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = fraud-detection-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-01-27T19:48:16.339+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-01-27T19:48:16.406+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=fraud-detection-producer-1] Instantiated an idempotent producer.
+2026-01-27T19:48:16.492+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.kafka.common.config.AbstractConfig   : These configurations '[spring.json.add.type.headers]' were supplied but are not used yet.
+2026-01-27T19:48:16.495+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.1.1
+2026-01-27T19:48:16.495+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: be816b82d25370ce
+2026-01-27T19:48:16.496+05:30  INFO 4684 --- [fraud-detection] [nio-8081-exec-9] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1769523496493
+2026-01-27T19:48:16.897+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:16.899+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:16.904+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:17.015+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:17.015+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:17.015+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:17.122+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:17.122+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:17.122+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:17.249+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:17.309+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:17.382+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:17.384+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:17.384+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:17.787+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:17.787+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:17.787+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:17.891+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:17.955+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.013+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.064+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.130+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.188+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.255+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.306+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.362+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.420+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.478+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.547+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:18.612+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:18.612+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:18.612+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:19.459+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:19.516+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:19.519+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:19.519+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:20.510+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:20.572+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:20.574+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:20.574+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:21.454+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:21.572+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:21.572+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:21.572+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:22.587+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:22.587+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:22.587+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:23.551+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:23.553+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:23.553+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:24.480+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:24.554+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:24.554+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:24.554+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:25.570+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:25.570+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:25.570+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:26.569+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:26.569+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:26.569+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:26.677+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:26.740+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:26.803+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:26.868+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:26.932+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:26.996+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.058+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.122+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.187+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.248+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.311+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.375+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.438+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:27.503+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:27.504+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:27.504+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:28.504+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:28.506+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:28.506+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:29.406+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:29.406+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:29.406+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:29.516+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.579+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.644+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.707+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.769+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.832+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.895+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:29.958+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.021+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.083+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.146+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.210+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.275+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.337+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:30.405+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:30.405+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:30.405+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:31.304+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:31.304+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:31.304+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:31.414+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.477+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.540+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.605+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.670+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.733+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.796+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.860+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.923+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:31.987+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:32.066+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:32.129+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:32.191+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:32.255+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:32.319+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:32.319+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:32.319+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:33.330+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:33.330+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:33.330+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:34.323+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:34.385+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:34.385+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:34.385+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:35.256+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:35.257+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:35.258+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:35.397+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.462+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.525+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.588+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.652+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.716+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.778+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.842+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.906+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:35.970+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:36.034+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:36.098+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:36.164+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:36.228+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:36.299+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:36.299+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:36.299+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:37.174+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.239+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:37.239+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:37.239+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:37.357+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.420+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.479+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.542+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.605+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.671+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.733+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.797+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.861+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.924+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:37.987+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:38.055+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:38.115+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:38.179+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:38.258+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:38.258+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:38.258+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:39.235+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:39.235+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:39.235+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:39.345+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.410+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.473+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.538+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.600+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.663+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.718+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.778+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.837+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.890+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:39.953+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:40.010+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:40.062+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:40.126+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:40.191+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:40.191+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:40.191+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:41.139+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:41.204+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:41.204+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:41.204+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:42.200+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:42.200+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:42.200+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:43.210+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:43.211+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:43.211+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:44.152+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:44.153+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:44.154+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:44.261+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.322+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.384+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.438+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.499+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.563+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.628+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.692+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.756+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.820+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.886+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:44.948+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:45.012+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:45.075+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:45.077+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:45.077+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:45.953+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:46.014+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:46.079+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:46.079+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:46.079+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:46.952+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:47.015+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:47.015+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:47.017+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:48.021+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:48.021+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:48.022+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:48.948+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:49.003+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:49.072+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:49.072+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:49.072+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:49.927+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:50.087+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:50.087+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:50.089+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:51.074+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:51.074+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:51.074+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:51.188+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.246+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.311+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.374+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.437+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.502+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.562+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.626+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.689+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.753+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.816+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.880+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:51.943+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:52.006+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:52.071+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:52.133+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:52.133+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:52.133+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:53.051+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:53.051+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:53.051+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:53.160+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.222+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.284+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.346+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.410+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.472+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.536+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.599+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.661+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.723+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.784+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.849+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.911+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:53.972+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:53.972+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:53.974+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:54.952+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:55.010+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:55.010+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:55.010+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:55.987+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:56.052+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:56.052+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:56.052+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:56.892+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.018+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:57.018+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:57.018+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:57.126+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.190+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.252+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.315+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.377+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.441+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.504+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.569+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.632+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.695+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.760+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.822+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.885+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:48:57.948+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:57.948+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:57.948+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:48:58.997+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:48:58.997+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:48:58.997+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:00.012+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:00.012+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:00.012+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:00.854+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:00.985+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:01.065+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:01.065+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:01.065+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:01.927+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:01.927+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:01.928+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:02.037+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.104+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.155+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.219+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.283+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.348+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.410+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.472+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.537+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.603+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.665+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.729+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.795+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.861+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:02.928+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:02.928+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:02.928+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:03.884+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:03.948+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:03.948+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:03.948+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:04.847+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:04.910+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:04.974+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:04.974+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:04.974+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:05.848+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:05.848+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:05.848+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:05.972+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.039+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.104+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.165+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.228+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.289+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.353+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.417+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.480+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.543+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.606+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.668+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.732+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.796+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:06.859+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:06.859+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:06.861+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:07.727+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:07.858+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:07.858+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:07.858+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:07.967+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.030+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.095+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.159+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.225+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.288+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.353+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.416+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.480+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.544+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.609+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:08.676+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:08.676+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:08.676+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:09.608+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:09.687+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:09.687+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:09.687+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:10.642+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:10.642+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:10.642+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:11.646+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:11.646+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:11.646+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:12.653+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:12.653+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:12.653+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:13.518+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:13.581+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:13.647+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:13.714+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:13.714+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:13.714+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:14.574+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:14.637+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:14.701+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:14.767+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:14.767+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:14.767+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:15.765+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:15.825+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:15.825+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:15.825+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:16.516+05:30 ERROR 4684 --- [fraud-detection] [nio-8081-exec-9] o.s.k.support.LoggingProducerListener    : Exception thrown when sending a message with key='2' and payload='FraudEventDto(transactionId=2, previousStatus=NEW, currentStatus=PENDING_REVIEW, riskScore=50, actor...' to topic transaction-evaluated:
+
+org.apache.kafka.common.errors.TimeoutException: Topic transaction-evaluated not present in metadata after 60000 ms.
+
+2026-01-27T19:49:16.516+05:30 ERROR 4684 --- [fraud-detection] [nio-8081-exec-9] c.g.f.service.KafkaProducerService       : Error publishing event to topic transaction-evaluated
+
+org.springframework.kafka.KafkaException: Send failed
+	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:869) ~[spring-kafka-4.0.2.jar:4.0.2]
+	at org.springframework.kafka.core.KafkaTemplate.observeSend(KafkaTemplate.java:826) ~[spring-kafka-4.0.2.jar:4.0.2]
+	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:607) ~[spring-kafka-4.0.2.jar:4.0.2]
+	at com.gmb.fraud_detection.service.KafkaProducerService.sendEvent(KafkaProducerService.java:19) ~[classes/:na]
+	at com.gmb.fraud_detection.service.impl.FraudDetectionImpl.evaluateTransaction(FraudDetectionImpl.java:74) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.2.jar:7.0.2]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:715) ~[spring-aop-7.0.2.jar:7.0.2]
+	at com.gmb.fraud_detection.service.impl.FraudDetectionImpl$$SpringCGLIB$$0.evaluateTransaction(<generated>) ~[classes/:na]
+	at com.gmb.fraud_detection.controller.FraudTransactionController.evaluateTransaction(FraudTransactionController.java:32) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.2.jar:7.0.2]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.2.jar:7.0.2]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: org.apache.kafka.common.errors.TimeoutException: Topic transaction-evaluated not present in metadata after 60000 ms.
+
+2026-01-27T19:49:16.721+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:16.721+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:16.721+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:17.540+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:17.541+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:17.541+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:17.724+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:17.788+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:17.851+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:17.917+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:17.982+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.046+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.109+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.172+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.238+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.301+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.365+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.428+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:18.494+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:18.494+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:18.494+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:19.382+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.447+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:19.447+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:19.447+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:19.558+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.614+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.668+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.730+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.795+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.859+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.924+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:19.988+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.053+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.117+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.182+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.246+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.310+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.374+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.437+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:20.503+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:20.503+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:20.503+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:21.465+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:21.528+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:21.528+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:21.528+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:22.462+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:22.540+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:22.542+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:22.542+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:23.465+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:23.531+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:23.594+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:23.594+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:23.594+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:24.459+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:24.459+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:24.459+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:24.596+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:24.649+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:24.712+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:24.777+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:24.835+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:24.892+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:24.957+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.021+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.084+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.148+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.211+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.273+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.339+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.402+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:25.466+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:25.466+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:25.466+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:26.406+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:26.470+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:26.470+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:26.470+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:27.408+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:27.408+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:27.409+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:28.344+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:28.407+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:28.475+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:28.475+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:28.475+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:29.488+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:29.488+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:29.488+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:30.397+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.463+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:30.463+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:30.463+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:30.570+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.633+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.696+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.760+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.824+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.888+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:30.949+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.013+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.076+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.139+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.202+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.264+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.328+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.392+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:31.455+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:31.455+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:31.455+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:32.394+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:32.471+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:32.471+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:32.471+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:33.344+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:33.474+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:33.474+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:33.474+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:34.451+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:34.451+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:34.451+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:35.361+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:35.422+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:35.493+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:35.493+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:35.493+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:36.425+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:36.425+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:36.425+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:36.537+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.600+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.662+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.725+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.788+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.852+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.904+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:36.967+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.033+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.100+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.162+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.225+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.290+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.352+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.414+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:37.478+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:37.478+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:37.478+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:38.360+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:38.422+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:38.488+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:38.488+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:38.488+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:39.499+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:39.499+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:39.499+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:40.504+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:40.504+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:40.504+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:41.482+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:41.545+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:41.545+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:41.545+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:42.429+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:42.429+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:42.429+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:42.557+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:42.619+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:42.690+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:42.745+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:42.809+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:42.872+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:42.942+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:43.000+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:43.063+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:43.127+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:43.192+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:43.257+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:43.257+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:43.257+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:44.164+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:44.164+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:44.164+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:44.271+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.332+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.395+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.457+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.520+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.584+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.659+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.711+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.773+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.838+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.903+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:44.965+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:45.029+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:45.095+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:45.158+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:45.224+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:45.224+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:45.224+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:46.161+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:46.161+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:46.161+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:47.100+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:47.163+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:47.163+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:47.163+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:48.044+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:48.044+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:48.044+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:48.926+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:48.993+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:48.993+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:48.993+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:49.947+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:50.012+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:50.012+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:50.012+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:51.015+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:51.015+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:51.015+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:51.954+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:51.954+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:51.954+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:52.063+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.125+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.189+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.253+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.318+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.383+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.437+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.500+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.563+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.628+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.691+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.754+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.817+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.882+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:52.944+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:53.009+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:53.009+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:53.009+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:53.887+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:53.953+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:53.953+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:53.953+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:54.816+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:54.882+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:54.934+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=fraud-detection-producer-1] Rebootstrapping with [localhost/127.0.0.1:9092]
+2026-01-27T19:49:55.000+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:55.000+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:55.000+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
+2026-01-27T19:49:56.003+05:30  INFO 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Node -1 disconnected.
+2026-01-27T19:49:56.003+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Node may not be available.
+2026-01-27T19:49:56.003+05:30  WARN 4684 --- [fraud-detection] [tion-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=fraud-detection-producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null isFenced: false) disconnected
