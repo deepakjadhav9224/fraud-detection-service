@@ -1,0 +1,19 @@
+{{- if and .Values.fraudDetection.enabled .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: fraud-detection
+  namespace: {{ .Values.namespace | quote }}
+  labels:
+    app: fraud-detection
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  selector:
+    matchLabels:
+      app: fraud-detection
+      release: {{ .Release.Name }}
+{{- end }}
+

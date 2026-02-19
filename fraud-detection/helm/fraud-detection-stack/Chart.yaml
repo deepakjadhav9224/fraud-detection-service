@@ -1,0 +1,49 @@
+apiVersion: v2
+name: fraud-detection-stack
+description: A Helm chart for Fraud Detection Service with Kafka, MySQL, Prometheus, and Grafana
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+
+# Chart dependencies
+dependencies:
+  - name: kafka
+    version: "26.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: kafka.enabled
+    tags:
+      - messaging
+
+  - name: zookeeper
+    version: "12.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: zookeeper.enabled
+    tags:
+      - messaging
+
+  - name: mysql
+    version: "9.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mysql.enabled
+    tags:
+      - database
+
+  - name: kube-prometheus-stack
+    version: "56.x.x"
+    repository: "https://prometheus-community.github.io/helm-charts"
+    condition: prometheus.enabled
+    tags:
+      - monitoring
+
+maintainers:
+  - name: DevOps Team
+    email: devops@gmbank.com
+
+keywords:
+  - fraud-detection
+  - kafka
+  - mysql
+  - prometheus
+  - grafana
+  - monitoring
+

@@ -1,0 +1,176 @@
+{{- if .Values.fraudDetection.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fraud-detection
+  namespace: {{ .Values.namespace | quote }}
+  labels:
+    app: fraud-detection
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.fraudDetection.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: fraud-detection
+      release: {{ .Release.Name }}
+
+  template:
+    metadata:
+      labels:
+        app: fraud-detection
+        release: {{ .Release.Name }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8081"
+        prometheus.io/path: "/actuator/prometheus"
+
+    spec:
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+
+      serviceAccountName: fraud-detection
+
+      # Init container to wait for dependencies
+      initContainers:
+      - name: wait-for-mysql
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z mysql.{{ .Values.namespace }}.svc.cluster.local 3306; do echo waiting for mysql; sleep 2; done']
+
+      - name: wait-for-kafka
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z kafka.{{ .Values.namespace }}.svc.cluster.local 9092; do echo waiting for kafka; sleep 2; done']
+
+      containers:
+      - name: fraud-detection
+        image: "{{ .Values.fraudDetection.image.repository }}:{{ .Values.fraudDetection.image.tag }}"
+        imagePullPolicy: {{ .Values.fraudDetection.image.pullPolicy }}
+
+        ports:
+        - name: http
+          containerPort: {{ .Values.fraudDetection.service.targetPort }}
+          protocol: TCP
+        - name: metrics
+          containerPort: 8081
+          protocol: TCP
+
+        # Environment variables from ConfigMap
+        envFrom:
+        - configMapRef:
+            name: fraud-detection-config
+
+        # Environment variables from Secret
+        env:
+        - name: MYSQL_HOST
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: MYSQL_HOST
+
+        - name: MYSQL_PORT
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: MYSQL_PORT
+
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: MYSQL_DATABASE
+
+        - name: SPRING_DATASOURCE_URL
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: SPRING_DATASOURCE_URL
+
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: SPRING_DATASOURCE_USERNAME
+
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: SPRING_DATASOURCE_PASSWORD
+
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: SPRING_KAFKA_BOOTSTRAP_SERVERS
+
+        - name: KAFKA_ADVERTISED_LISTENERS
+          valueFrom:
+            secretKeyRef:
+              name: fraud-detection-secrets
+              key: KAFKA_ADVERTISED_LISTENERS
+
+        {{- if .Values.fraudDetection.env }}
+        {{- range $key, $value := .Values.fraudDetection.env }}
+        - name: {{ $key }}
+          value: {{ $value | quote }}
+        {{- end }}
+        {{- end }}
+
+        # Liveness probe
+        {{- if .Values.fraudDetection.livenessProbe.enabled }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.fraudDetection.livenessProbe.httpGet.path }}
+            port: {{ .Values.fraudDetection.livenessProbe.httpGet.port }}
+          initialDelaySeconds: {{ .Values.fraudDetection.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.fraudDetection.livenessProbe.periodSeconds }}
+          timeoutSeconds: 5
+          failureThreshold: 3
+        {{- end }}
+
+        # Readiness probe
+        {{- if .Values.fraudDetection.readinessProbe.enabled }}
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.fraudDetection.readinessProbe.httpGet.path }}
+            port: {{ .Values.fraudDetection.readinessProbe.httpGet.port }}
+          initialDelaySeconds: {{ .Values.fraudDetection.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.fraudDetection.readinessProbe.periodSeconds }}
+          timeoutSeconds: 5
+          failureThreshold: 3
+        {{- end }}
+
+        # Resource limits
+        resources:
+          {{- toYaml .Values.fraudDetection.resources | nindent 12 }}
+
+        # Volume mounts
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+
+      # Volumes
+      volumes:
+      - name: logs
+        emptyDir: {}
+
+      # Pod affinity for better distribution
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - fraud-detection
+              topologyKey: kubernetes.io/hostname
+
+{{- end }}
+

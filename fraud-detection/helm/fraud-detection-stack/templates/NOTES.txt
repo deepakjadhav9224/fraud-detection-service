@@ -1,0 +1,46 @@
+1. Get the application status:
+  kubectl get pods -n {{ .Values.namespace }}
+
+2. Watch the deployment:
+  kubectl rollout status deployment/fraud-detection -n {{ .Values.namespace }}
+
+3. View application logs:
+  kubectl logs -f deployment/fraud-detection -n {{ .Values.namespace }}
+
+4. Access the Fraud Detection Application:
+  {{- if .Values.fraudDetection.ingress.enabled }}
+  http://{{ index .Values.fraudDetection.ingress.hosts 0 "host" }}
+  {{- else }}
+  kubectl port-forward -n {{ .Values.namespace }} svc/fraud-detection 8081:8081
+  Then visit: http://localhost:8081
+  {{- end }}
+
+5. Access Grafana Dashboard:
+  kubectl port-forward -n {{ .Values.namespace }} svc/kube-prometheus-stack-grafana 3000:80
+  Then visit: http://localhost:3000
+  Default username: admin
+  Default password: {{ .Values.prometheus.grafana.adminPassword }}
+
+6. Access Prometheus UI:
+  kubectl port-forward -n {{ .Values.namespace }} svc/prometheus-operated 9090:9090
+  Then visit: http://localhost:9090
+
+7. View application metrics:
+  kubectl port-forward -n {{ .Values.namespace }} svc/fraud-detection 8081:8081
+  Then visit: http://localhost:8081/actuator/prometheus
+
+8. Check MySQL status:
+  kubectl exec -it deployment/mysql -n {{ .Values.namespace }} -- mysql -uroot -p{{ .Values.mysql.auth.rootPassword }} -e "SHOW DATABASES;"
+
+9. Check Kafka topics:
+  kubectl exec -it pod/kafka-0 -n {{ .Values.namespace }} -- kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+10. View all resources:
+  kubectl get all -n {{ .Values.namespace }}
+
+For more information, visit:
+- Fraud Detection Application: http://localhost:8081/swagger-ui.html
+- Prometheus Docs: https://prometheus.io/docs/
+- Grafana Docs: https://grafana.com/docs/
+- Kubernetes: https://kubernetes.io/docs/
+

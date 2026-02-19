@@ -1,0 +1,37 @@
+{{- if and .Values.fraudDetection.enabled .Values.fraudDetection.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fraud-detection
+  namespace: {{ .Values.namespace | quote }}
+  labels:
+    app: fraud-detection
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: fraud-detection
+  minReplicas: {{ .Values.fraudDetection.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.fraudDetection.autoscaling.maxReplicas }}
+  metrics:
+  {{- if .Values.fraudDetection.autoscaling.targetCPUUtilizationPercentage }}
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.fraudDetection.autoscaling.targetCPUUtilizationPercentage }}
+  {{- end }}
+  {{- if .Values.fraudDetection.autoscaling.targetMemoryUtilizationPercentage }}
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.fraudDetection.autoscaling.targetMemoryUtilizationPercentage }}
+  {{- end }}
+{{- end }}
+

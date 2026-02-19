@@ -1,0 +1,328 @@
+# Default values for fraud-detection-stack
+
+  enabled: false
+networkPolicy:
+# ============================================================================
+# Network Policy (optional - set to true to enable)
+# ============================================================================
+
+  minAvailable: 1
+  enabled: true
+podDisruptionBudget:
+# ============================================================================
+# Pod Disruption Budget (for high availability)
+# ============================================================================
+
+  fsGroup: 2000
+  runAsUser: 1000
+  runAsNonRoot: true
+securityContext:
+# ============================================================================
+# Global Security Settings
+# ============================================================================
+
+                storage: 10Gi
+              requests:
+            resources:
+            accessModes: ["ReadWriteOnce"]
+            storageClassName: ""
+          spec:
+        volumeClaimTemplate:
+      storage:
+    alertmanagerSpec:
+    enabled: true
+  alertmanager:
+  # AlertManager configuration
+
+          datasource: Prometheus
+          revision: 1
+          gnetId: 11074
+        mysql-performance:
+
+          datasource: Prometheus
+          revision: 5
+          gnetId: 4701
+        jvm-metrics:
+
+          datasource: Prometheus
+          revision: 1
+          gnetId: 7249
+        kubernetes-cluster:
+      default:
+    dashboards:
+
+              path: /var/lib/grafana/dashboards/default
+            options:
+            editable: true
+            disableDeletion: false
+            type: file
+            folder: ''
+            orgId: 1
+          - name: 'default'
+        providers:
+        apiVersion: 1
+      dashboardproviders.yaml:
+    dashboardProviders:
+    # Pre-configured dashboards
+
+            isDefault: true
+            access: proxy
+            url: http://prometheus-operated:9090
+            type: prometheus
+          - name: Prometheus
+        datasources:
+        apiVersion: 1
+      datasources.yaml:
+    datasources:
+    # Data source for Prometheus
+
+      size: 10Gi
+      enabled: true
+    persistence:
+    # Persistence
+
+      nodePort: 30300
+      port: 3000
+      type: NodePort
+    service:
+    # Grafana service
+
+    adminPassword: "admin123"
+    enabled: true
+  grafana:
+  # Grafana configuration
+
+      ruleSelectorNil: false
+      podMonitorSelectorNil: false
+      serviceMonitorSelectorNil: false
+      # Service monitors to scrape
+
+          memory: 1Gi
+          cpu: 500m
+        limits:
+          memory: 512Mi
+          cpu: 250m
+        requests:
+      resources:
+
+                storage: 50Gi
+              requests:
+            resources:
+            accessModes: ["ReadWriteOnce"]
+            storageClassName: ""
+          spec:
+        volumeClaimTemplate:
+      storageSpec:
+      retention: 15d
+    prometheusSpec:
+  prometheus:
+  # Prometheus configuration
+
+    enabled: true
+  nodeExporter:
+    enabled: true
+  kubeStateMetrics:
+  # Prometheus Operator settings
+
+  enabled: true
+prometheus:
+# ============================================================================
+# Prometheus Configuration (kube-prometheus-stack)
+# ============================================================================
+
+    LOGGING_LEVEL_COM_GMB: "INFO"
+    SERVER_PORT: "8081"
+    SPRING_PROFILES_ACTIVE: "kubernetes"
+  env:
+  # Environment variables
+
+    periodSeconds: 5
+    initialDelaySeconds: 20
+      port: 8081
+      path: /actuator/health/readiness
+    httpGet:
+    enabled: true
+  readinessProbe:
+
+    periodSeconds: 10
+    initialDelaySeconds: 30
+      port: 8081
+      path: /actuator/health
+    httpGet:
+    enabled: true
+  livenessProbe:
+  # Probes
+
+    targetMemoryUtilizationPercentage: 80
+    targetCPUUtilizationPercentage: 80
+    maxReplicas: 5
+    minReplicas: 2
+    enabled: true
+  autoscaling:
+  # Autoscaling
+
+      memory: 1Gi
+      cpu: 1000m
+    limits:
+      memory: 512Mi
+      cpu: 500m
+    requests:
+  resources:
+  # Resource limits
+
+            pathType: Prefix
+          - path: /
+        paths:
+      - host: fraud-detection.example.com
+    hosts:
+    annotations: {}
+    className: "nginx"
+    enabled: false
+  ingress:
+  # Ingress configuration (optional)
+
+    targetPort: 8081
+    port: 8081
+    type: ClusterIP
+  service:
+  # Service configuration
+
+  replicaCount: 2
+  # Replica count
+
+    pullPolicy: IfNotPresent
+    tag: "1.0.0"
+    repository: "your-registry/fraud-detection"
+  image:
+  # Docker image
+
+  enabled: true
+fraudDetection:
+# ============================================================================
+# Fraud Detection Application Configuration
+# ============================================================================
+
+      namespace: fraud-detection
+      enabled: true
+    serviceMonitor:
+    enabled: true
+  metrics:
+
+        memory: 512Mi
+        cpu: 500m
+      limits:
+        memory: 256Mi
+        cpu: 250m
+      requests:
+    resources:
+
+      storageClass: ""
+      size: 20Gi
+      enabled: true
+    persistence:
+  primary:
+
+    tag: "8.0"
+  image:
+  # MySQL version to match docker-compose (8.0)
+
+    password: "FraudUser@123"
+    username: "fraud_service_user"
+    database: "fraud_detection_db"
+    rootPassword: "root"
+  auth:
+  enabled: true
+mysql:
+# ============================================================================
+# MySQL Configuration (Bitnami Chart)
+# ============================================================================
+
+  advertisedListeners: "PLAINTEXT://kafka:9092"
+
+      protocol: PLAINTEXT
+      containerPort: 9092
+    client:
+  listeners:
+  # This will be configured to use Kubernetes DNS for internal pods
+  # Advertised listeners for internal communication
+
+      port: 9999
+      enabled: true
+    jmx:
+  metrics:
+  # Metrics
+
+    # For internal Kubernetes DNS: kafka.fraud-detection.svc.cluster.local:9092
+    port: 9092
+    type: ClusterIP
+  service:
+  # Service configuration
+
+      memory: 1Gi
+      cpu: 500m
+    limits:
+      memory: 512Mi
+      cpu: 250m
+    requests:
+  resources:
+  # Resources
+
+  zookeeperChrootPath: "/kafka"
+  # Zookeeper dependency
+
+    storageClass: ""
+    size: 10Gi
+    enabled: true
+  persistence:
+  # Storage
+
+    enabled: false
+  externalAccess:
+  # External connectivity
+
+    heapOpts: "-Xmx512m -Xms512m"
+  broker:
+  # Kafka broker configuration
+
+    enabled: false
+  auth:
+
+    tag: "7.5.0"
+  image:
+  # Kafka version to match docker-compose (7.5.0)
+
+  replicaCount: 1
+  enabled: true
+kafka:
+# ============================================================================
+# Kafka Configuration (Bitnami Chart)
+# ============================================================================
+
+      memory: 512Mi
+      cpu: 500m
+    limits:
+      memory: 256Mi
+      cpu: 250m
+    requests:
+  resources:
+    storageClass: ""
+    size: 8Gi
+    enabled: true
+  persistence:
+    enabled: false
+  auth:
+  replicaCount: 1
+  enabled: true
+zookeeper:
+# ============================================================================
+# Zookeeper Configuration (Bitnami Chart)
+# ============================================================================
+
+  imagePullSecrets: []
+  storageClass: standard
+global:
+# Global settings
+
+namespace: fraud-detection
+# Namespace for all resources
+

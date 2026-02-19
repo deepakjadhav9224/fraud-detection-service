@@ -1,0 +1,27 @@
+{{- if .Values.fraudDetection.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: fraud-detection
+  namespace: {{ .Values.namespace | quote }}
+  labels:
+    app: fraud-detection
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8081"
+    prometheus.io/path: "/actuator/prometheus"
+spec:
+  type: {{ .Values.fraudDetection.service.type }}
+  ports:
+  - port: {{ .Values.fraudDetection.service.port }}
+    targetPort: {{ .Values.fraudDetection.service.targetPort }}
+    protocol: TCP
+    name: http
+  selector:
+    app: fraud-detection
+    release: {{ .Release.Name }}
+{{- end }}
+

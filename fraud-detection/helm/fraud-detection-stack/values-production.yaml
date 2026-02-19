@@ -1,0 +1,68 @@
+# Production-ready values for Fraud Detection Stack
+
+# Override specific production settings here
+# Use this file with: helm install fraud-detection ./fraud-detection-stack -f values.yaml -f values-production.yaml
+
+fraudDetection:
+  replicaCount: 3
+
+  image:
+    # Change to your production registry
+    repository: "your-production-registry/fraud-detection"
+    tag: "1.0.0"
+    pullPolicy: IfNotPresent
+
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 75
+
+kafka:
+  replicaCount: 3
+
+  broker:
+    heapOpts: "-Xmx1g -Xms1g"
+
+mysql:
+  primary:
+    persistence:
+      size: 50Gi
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+
+prometheus:
+  grafana:
+    adminPassword: "your-secure-grafana-password"
+
+    persistence:
+      size: 20Gi
+
+  prometheus:
+    prometheusSpec:
+      retention: 30d
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            resources:
+              requests:
+                storage: 100Gi
+
+# Network Policy
+networkPolicy:
+  enabled: true
+
