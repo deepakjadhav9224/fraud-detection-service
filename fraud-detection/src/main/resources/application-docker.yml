@@ -3,3 +3,22 @@ spring:
     url: jdbc:mysql://mysql-fd:3306/fraud_detection_db
   kafka:
     bootstrap-servers: kafka:9092
+server:
+  port: 8081
+  address: 0.0.0.0
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,metrics,info,env
+  endpoint:
+    prometheus:
+      enabled: true
+  health:
+    show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
