@@ -1,0 +1,12 @@
+{{- if .Values.config.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fraud-detection-config
+  namespace: {{ include "fraud-detection-stack.namespace" . }}
+  labels:
+    app: fraud-detection
+data:
+  application.yml: |
+{{- .Values.config.applicationYml | nindent 4 }}
+{{- end }}

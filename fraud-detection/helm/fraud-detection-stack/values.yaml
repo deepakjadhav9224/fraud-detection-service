@@ -1,0 +1,95 @@
+nameOverride: ""
+fullnameOverride: ""
+
+namespaceOverride: ""
+
+imagePullSecrets: []
+
+fraudDetection:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: fraud-detection
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8081
+    targetPort: 8081
+  env:
+    springProfilesActive: docker
+  resources: {}
+
+config:
+  enabled: true
+  applicationYml: |
+    spring:
+      datasource:
+        url: jdbc:mysql://mysql:3306/fraud_detection_db
+      kafka:
+        bootstrap-servers: kafka:9092
+    server:
+      port: 8081
+    app:
+      kafka:
+        topics:
+          transaction-evaluated: transaction-evaluated
+          transaction-status-updated: transaction-status-updated
+          customer-action-received: customer-action-received
+
+zookeeper:
+  enabled: true
+  image: confluentinc/cp-zookeeper:7.5.0
+  service:
+    port: 2181
+  env:
+    clientPort: "2181"
+    tickTime: "2000"
+
+kafka:
+  enabled: true
+  image: confluentinc/cp-kafka:7.5.0
+  service:
+    port: 9092
+  env:
+    brokerId: "1"
+    zookeeperConnect: "zookeeper:2181"
+    advertisedListeners: "PLAINTEXT://kafka:9092"
+    listenerSecurityProtocolMap: "PLAINTEXT:PLAINTEXT"
+    interBrokerListenerName: "PLAINTEXT"
+    offsetsTopicReplicationFactor: "1"
+    transactionStateLogMinIsr: "1"
+    transactionStateLogReplicationFactor: "1"
+
+mysql:
+  enabled: true
+  image: mysql:8.0
+  service:
+    port: 3306
+  persistence:
+    enabled: true
+    size: 1Gi
+  env:
+    database: fraud_detection_db
+    user: fraud_service_user
+    password: FraudUser@123
+    rootPassword: root
+
+argoApplication:
+  enabled: true
+  name: fraud-detection
+  namespace: argocd
+  project: default
+  destination:
+    server: https://fraud-detection-cluster-dns-opt65vgk.hcp.eastus.azmk8s.io:443
+    namespace: default
+  source:
+    repoURL: "https://github.com/deepakjadhav9224/fraud-detection-service.git"
+    targetRevision: TestCI
+    path: fraud-detection/helm/fraud-detection-stack
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

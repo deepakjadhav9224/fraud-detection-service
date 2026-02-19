@@ -1,0 +1,17 @@
+{{- if .Values.fraudDetection.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: fraud-detection
+  namespace: {{ include "fraud-detection-stack.namespace" . }}
+  labels:
+    app: fraud-detection
+spec:
+  type: {{ .Values.fraudDetection.service.type }}
+  selector:
+    app: fraud-detection
+  ports:
+    - name: http
+      port: {{ .Values.fraudDetection.service.port }}
+      targetPort: {{ .Values.fraudDetection.service.targetPort }}
+{{- end }}

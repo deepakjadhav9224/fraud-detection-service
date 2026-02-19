@@ -71,3 +71,32 @@ spring:
       group-id: fraud-detection-group
       auto-offset-reset: earliest
 ```
+
+## Helm Chart
+
+A Helm chart for deploying the complete stack (fraud-detection app + Kafka + Zookeeper + MySQL) is available at:
+
+- `helm/fraud-detection-stack`
+
+### Render manifests
+
+```bash
+helm template fraud-detection-stack ./helm/fraud-detection-stack
+```
+
+### Install chart
+
+```bash
+helm install fraud-detection-stack ./helm/fraud-detection-stack -n fraud-detection --create-namespace
+```
+
+### Optional Argo CD Application
+
+The chart includes `templates/argo-application.yml` and is disabled by default.
+Enable it with:
+
+```bash
+helm template fraud-detection-stack ./helm/fraud-detection-stack \
+  --set argoApplication.enabled=true \
+  --set argoApplication.source.repoURL=https://github.com/<org>/<repo>.git
+```

@@ -1,0 +1,49 @@
+{{- if .Values.fraudDetection.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fraud-detection
+  namespace: {{ include "fraud-detection-stack.namespace" . }}
+  labels:
+    app: fraud-detection
+spec:
+  replicas: {{ .Values.fraudDetection.replicaCount }}
+  selector:
+    matchLabels:
+      app: fraud-detection
+  template:
+    metadata:
+      labels:
+        app: fraud-detection
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: fraud-detection
+          image: "{{ .Values.fraudDetection.image.repository }}:{{ .Values.fraudDetection.image.tag }}"
+          imagePullPolicy: {{ .Values.fraudDetection.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.fraudDetection.service.targetPort }}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: {{ .Values.fraudDetection.env.springProfilesActive | quote }}
+          {{- if .Values.config.enabled }}
+            - name: SPRING_CONFIG_ADDITIONAL_LOCATION
+              value: /app/config/
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+          {{- end }}
+          {{- with .Values.fraudDetection.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- if .Values.config.enabled }}
+      volumes:
+        - name: config
+          configMap:
+            name: fraud-detection-config
+      {{- end }}
+{{- end }}
