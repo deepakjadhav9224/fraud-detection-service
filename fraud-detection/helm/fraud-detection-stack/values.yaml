@@ -48,7 +48,7 @@ zookeeper:
     tickTime: "2000"
 
 kafka:
-  enabled: false
+  enabled: true
   image: confluentinc/cp-kafka:7.5.0
   service:
     type: LoadBalancer
