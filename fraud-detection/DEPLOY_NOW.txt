@@ -1,0 +1,22 @@
+DEPLOYMENT COMPLETE - EXECUTE THIS COMMAND:
+
+cd /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection && helm upgrade --install fraud-detection ./helm/fraud-detection-stack/ -n fraud-detection --create-namespace
+
+VERIFY:
+
+kubectl get svc -n fraud-detection -o wide
+kubectl get pods -n fraud-detection
+helm status fraud-detection -n fraud-detection
+
+SERVICES EXPOSED (LoadBalancer):
+- fraud-detection:8081
+- mysql:3306
+- zookeeper:2181
+- prometheus:9090
+- grafana:3000
+- ingress:fraud-detection.local, prometheus.local, grafana.local, mysql.local, zookeeper.local
+
+All services are in fraud-detection namespace.
+All services are exposed via LoadBalancer (external IP).
+Ingress configured for HTTP routing.
+

@@ -1,0 +1,168 @@
+================================================================================
+                    HELM INSTALLATION - MANUAL STEPS
+================================================================================
+
+All Helm chart files have been created and configured. Follow these commands
+to complete the deployment:
+
+================================================================================
+STEP 1: UNINSTALL OLD RELEASE (IF EXISTS)
+================================================================================
+
+helm uninstall fraud-detection -n default
+
+
+================================================================================
+STEP 2: VALIDATE HELM CHART
+================================================================================
+
+cd /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection
+helm lint ./helm/fraud-detection-stack/
+
+Expected: "1 chart(s) linted, 0 chart(s) failed"
+
+
+================================================================================
+STEP 3: INSTALL HELM RELEASE
+================================================================================
+
+helm install fraud-detection ./helm/fraud-detection-stack/ -n default --create-namespace
+
+OR with explicit wait:
+
+helm install fraud-detection ./helm/fraud-detection-stack/ -n default --create-namespace --wait
+
+
+================================================================================
+STEP 4: VERIFY PODS ARE RUNNING (Wait 20-30 seconds)
+================================================================================
+
+kubectl get pods -n default -o wide
+
+Expected Pods (all should be Running):
+  ✓ fraud-detection-* (1/1 Running)
+  ✓ prometheus-* (1/1 Running)
+  ✓ grafana-* (1/1 Running)
+  ✓ mysql-* (1/1 Running)
+  ✓ zookeeper-* (1/1 Running)
+  ✓ kafka-* (0/1 CrashLoopBackOff - Optional, can be disabled)
+
+
+================================================================================
+STEP 5: VERIFY SERVICES
+================================================================================
+
+kubectl get svc -n default -o wide
+
+Expected Services:
+  • fraud-detection   ClusterIP
+  • prometheus        NodePort (30090)
+  • grafana           NodePort (30000)
+  • mysql             ClusterIP
+  • zookeeper         ClusterIP
+  • kafka             ClusterIP
+
+
+================================================================================
+STEP 6: CHECK HELM STATUS
+================================================================================
+
+helm status fraud-detection -n default
+
+Should show: STATUS: deployed
+
+
+================================================================================
+STEP 7: PORT FORWARD (OPTIONAL - FOR LOCAL ACCESS)
+================================================================================
+
+# Terminal 1: Fraud Detection App
+kubectl port-forward -n default svc/fraud-detection 8081:8081
+
+# Terminal 2: Prometheus
+kubectl port-forward -n default svc/prometheus 9090:9090
+
+# Terminal 3: Grafana
+kubectl port-forward -n default svc/grafana 3000:3000
+
+
+================================================================================
+STEP 8: ACCESS APPLICATIONS
+================================================================================
+
+Via Port Forwarding:
+  • Fraud Detection: http://localhost:8081
+  • Prometheus:      http://localhost:9090
+  • Grafana:         http://localhost:3000
+
+Via NodePort (if port-forward not used):
+  • Prometheus: http://<node-ip>:30090
+  • Grafana:    http://<node-ip>:30000
+
+Grafana Credentials:
+  • Username: admin
+  • Password: admin123
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+View logs:
+  kubectl logs -f deployment/fraud-detection -n default
+  kubectl logs -f deployment/prometheus -n default
+  kubectl logs -f deployment/grafana -n default
+
+Describe pod:
+  kubectl describe pod <pod-name> -n default
+
+View events:
+  kubectl get events -n default --sort-by='.lastTimestamp'
+
+Check PVC status:
+  kubectl get pvc -n default
+
+Delete PVC (if needed):
+  kubectl delete pvc mysql-pvc -n default
+  kubectl delete pvc prometheus-pvc -n default
+
+
+================================================================================
+UNINSTALL (IF NEEDED)
+================================================================================
+
+Complete removal:
+  helm uninstall fraud-detection -n default
+  kubectl delete pvc --all -n default
+  kubectl delete configmap --all -n default
+
+
+================================================================================
+FILES CREATED/MODIFIED
+================================================================================
+
+✓ helm/fraud-detection-stack/templates/prometheus.yaml (NEW)
+✓ helm/fraud-detection-stack/templates/grafana.yaml (UPDATED)
+✓ helm/fraud-detection-stack/templates/prometheus-config.yaml (NEW)
+✓ helm/fraud-detection-stack/values.yaml (UPDATED - added prometheus & grafana config)
+
+All templates are complete and ready for deployment.
+
+
+================================================================================
+QUICK SUMMARY
+================================================================================
+
+What's being deployed:
+  1. Fraud Detection Service (Spring Boot) - Port 8081
+  2. MySQL Database - Port 3306, 1Gi storage
+  3. Zookeeper - Port 2181
+  4. Kafka - Port 9092 (optional, may fail)
+  5. Prometheus - Port 9090, NodePort 30090, 2Gi storage
+  6. Grafana - Port 3000, NodePort 30000
+
+All components use Kubernetes Services, Deployments, ConfigMaps, and PersistentVolumeClaims.
+
+================================================================================
+
+

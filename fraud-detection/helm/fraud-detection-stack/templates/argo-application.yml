@@ -1,0 +1,26 @@
+{{- if .Values.argoApplication.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argoApplication.name }}
+  namespace: {{ .Values.argoApplication.namespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.argoApplication.project }}
+  source:
+    repoURL: {{ .Values.argoApplication.source.repoURL }}
+    targetRevision: {{ .Values.argoApplication.source.targetRevision }}
+    path: {{ .Values.argoApplication.source.path }}
+  destination:
+    server: {{ .Values.argoApplication.destination.server }}
+    namespace: {{ .Values.argoApplication.destination.namespace }}
+  syncPolicy:
+    automated:
+      prune: {{ .Values.argoApplication.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.argoApplication.syncPolicy.automated.selfHeal }}
+    syncOptions:
+    {{- range .Values.argoApplication.syncPolicy.syncOptions }}
+      - {{ . }}
+    {{- end }}
+{{- end }}

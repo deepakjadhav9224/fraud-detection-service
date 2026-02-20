@@ -1,0 +1,68 @@
+{{- if .Values.mysql.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: {{ include "fraud-detection-stack.namespace" . }}
+spec:
+  type: {{ .Values.mysql.service.type }}
+  ports:
+    - port: {{ .Values.mysql.service.port }}
+      targetPort: {{ .Values.mysql.service.port }}
+  selector:
+    app: mysql
+---
+{{- if .Values.mysql.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  namespace: {{ include "fraud-detection-stack.namespace" . }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.mysql.persistence.size }}
+---
+{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: {{ include "fraud-detection-stack.namespace" . }}
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: {{ .Values.mysql.image }}
+          ports:
+            - containerPort: {{ .Values.mysql.service.port }}
+          env:
+            - name: MYSQL_DATABASE
+              value: {{ .Values.mysql.env.database | quote }}
+            - name: MYSQL_USER
+              value: {{ .Values.mysql.env.user | quote }}
+            - name: MYSQL_PASSWORD
+              value: {{ .Values.mysql.env.password | quote }}
+            - name: MYSQL_ROOT_PASSWORD
+              value: {{ .Values.mysql.env.rootPassword | quote }}
+          {{- if .Values.mysql.persistence.enabled }}
+          volumeMounts:
+            - name: mysql-storage
+              mountPath: /var/lib/mysql
+          {{- end }}
+      {{- if .Values.mysql.persistence.enabled }}
+      volumes:
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+      {{- end }}
+{{- end }}

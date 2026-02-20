@@ -1,0 +1,72 @@
+================================================================================
+                    COMMAND HISTORY - FRAUD DETECTION SERVICE
+                               February 19-20, 2026
+================================================================================
+
+1. HELM INSTALLATION (19 Feb 2026 17:00 IST)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cd /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection && helm install fraud-detection ./helm/fraud-detection-stack/ --namespace default --create-namespace
+
+2. CHECK POD STATUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl get pods -n default
+
+3. CHECK SERVICE STATUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl get svc -n default
+
+4. VIEW KAFKA LOGS (DEBUGGING)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl logs -l app=kafka -n default
+
+5. DESCRIBE KAFKA POD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl describe pod -l app=kafka -n default
+
+6. UPGRADE HELM RELEASE (FIX KAFKA PROBES)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cd /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection && helm upgrade fraud-detection ./helm/fraud-detection-stack/ --namespace default
+
+7. RESTART KAFKA DEPLOYMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl rollout restart deployment/kafka -n default
+
+8. CHECK POD STATUS AFTER RESTART
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl get pods -n default -o wide
+
+9. UPGRADE HELM RELEASE (DISABLE KAFKA)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cd /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection && helm upgrade fraud-detection ./helm/fraud-detection-stack/ --namespace default
+
+10. VERIFY FINAL POD STATUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl get pods -n default
+
+11. VIEW FRAUD DETECTION LOGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl logs -l app=fraud-detection -n default
+
+12. PORT FORWARD SERVICE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl port-forward -n default svc/fraud-detection 8081:8081 &
+
+13. TEST HEALTH ENDPOINT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+curl -s http://localhost:8081/actuator/health
+
+14. TEST SWAGGER UI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+curl -v http://localhost:8081/swagger-ui.html
+
+15. UNINSTALL ARGO CD APPLICATION (20 Feb 2026 02:30 IST)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl delete application fraud-detection -n argocd
+
+16. REINSTALL ARGO CD APPLICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+helm template fraud-detection-stack . | kubectl apply -f -
+
+17. VERIFY ARGO CD APPLICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+kubectl get application -n argocd
