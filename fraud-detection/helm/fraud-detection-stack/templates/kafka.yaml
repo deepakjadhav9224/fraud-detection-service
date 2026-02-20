@@ -5,8 +5,10 @@ metadata:
   name: kafka
   namespace: {{ include "fraud-detection-stack.namespace" . }}
 spec:
+  type: {{ .Values.kafka.service.type }}
   ports:
     - port: {{ .Values.kafka.service.port }}
+      targetPort: {{ .Values.kafka.service.port }}
       name: plaintext
   selector:
     app: kafka

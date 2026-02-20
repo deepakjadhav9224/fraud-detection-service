@@ -5,8 +5,10 @@ metadata:
   name: mysql
   namespace: {{ include "fraud-detection-stack.namespace" . }}
 spec:
+  type: {{ .Values.mysql.service.type }}
   ports:
     - port: {{ .Values.mysql.service.port }}
+      targetPort: {{ .Values.mysql.service.port }}
   selector:
     app: mysql
 ---

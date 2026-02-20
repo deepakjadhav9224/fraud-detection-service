@@ -1,0 +1,20 @@
+ISSUE FIXED - RUN THESE COMMANDS:
+
+1. Delete orphaned resources:
+   kubectl delete all,configmap,secret,pvc -n fraud-detection --all
+
+2. Wait 10 seconds:
+   sleep 10
+
+3. Deploy fresh:
+   cd /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection
+   helm install fraud-detection ./helm/fraud-detection-stack/ -n fraud-detection
+
+4. Verify:
+   kubectl get svc -n fraud-detection -o wide
+   kubectl get pods -n fraud-detection -o wide
+   helm status fraud-detection -n fraud-detection
+
+OR run the script:
+   bash /home/labuser/IdeaProjects/fraud-detection-service/fraud-detection/fix-deploy.sh
+
